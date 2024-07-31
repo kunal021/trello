@@ -2,6 +2,7 @@
 
 import { useAuth } from "../context/AuthContext";
 import CreateButton from "./CreateButton";
+import { Button } from "./ui/button";
 
 function Sidebar() {
   const { user } = useAuth();
@@ -13,6 +14,16 @@ function Sidebar() {
         title="Create new task"
         classname="w-[80%] mx-auto bg-gradient-to-t from-indigo-900 to-indigo-700 hover:bg-gradient-to-t hover:from-indigo-900 hover:to-indigo-700"
       />
+      <Button
+        className="w-[80%] mx-auto"
+        variant={"destructive"}
+        onClick={() => {
+          sessionStorage.clear();
+          window.location.href = "/";
+        }}
+      >
+        Logout
+      </Button>
     </div>
   );
 }
