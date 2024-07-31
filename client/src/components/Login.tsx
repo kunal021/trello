@@ -32,7 +32,7 @@ function Login() {
     try {
       setLoading(true);
       const response = await axios.post(
-        "http://localhost:3050/api/auth/login",
+        "https://trello-wzb3.onrender.com/api/auth/login",
         data
       );
 

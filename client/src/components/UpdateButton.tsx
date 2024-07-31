@@ -69,7 +69,7 @@ function UpdateButton({
     try {
       setLoading(true);
       const response = await axios.patch(
-        `http://localhost:3050/api/task/update/${newData._id}`,
+        `https://trello-wzb3.onrender.com/api/task/update/${newData._id}`,
         data,
         { headers: { Authorization: `Bearer ${JSON.parse(token)}` } }
       );

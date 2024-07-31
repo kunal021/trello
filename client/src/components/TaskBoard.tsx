@@ -23,9 +23,12 @@ const columns = ["To-Do", "In Progress", "Under Review", "Completed"];
 
 const fetchTasks = async (dispatch: AppDispatch, token: string) => {
   try {
-    const response = await axios.get("http://localhost:3050/api/task/get", {
-      headers: { Authorization: `Bearer ${token}` },
-    });
+    const response = await axios.get(
+      "https://trello-wzb3.onrender.com/api/task/get",
+      {
+        headers: { Authorization: `Bearer ${token}` },
+      }
+    );
     dispatch(setTasks(response.data));
   } catch (error) {
     console.error("Failed to fetch tasks", error);
@@ -42,7 +45,7 @@ const TaskBoard: React.FC = () => {
     if (!token) return;
     try {
       const response = await axios.patch(
-        `http://localhost:3050/api/task/update-status/${id}`,
+        `https://trello-wzb3.onrender.com/api/task/update-status/${id}`,
         { status },
         { headers: { Authorization: `Bearer ${JSON.parse(token)}` } }
       );
@@ -56,7 +59,7 @@ const TaskBoard: React.FC = () => {
     if (!token) return;
     try {
       const response = await axios.delete(
-        `http://localhost:3050/api/task/delete/${id}`,
+        `https://trello-wzb3.onrender.com/api/task/delete/${id}`,
         { headers: { Authorization: `Bearer ${JSON.parse(token)}` } }
       );
       if (response.status === 200) {

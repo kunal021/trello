@@ -33,7 +33,7 @@ function Signup() {
     try {
       setLoading(true);
       const response = await axios.post(
-        "http://localhost:3050/api/auth/signup",
+        "https://trello-wzb3.onrender.com/api/auth/signup",
         data
       );
 
@@ -47,8 +47,7 @@ function Signup() {
           JSON.stringify(response.data.data.token)
         );
         toast.success("User created successfully");
-        router.push("/home");
-        router.refresh();
+        window.location.href = "/home";
       }
     } catch (error: string | any) {
       console.log(error);
